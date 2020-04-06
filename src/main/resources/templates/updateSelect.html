@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<span th:if="${list.size() == 0 }">
+		您还没有录入信息。
+	</span>
+	<span th:if="${list.size() != 0 }">
+		<table cellpadding="10"  style="text-align: center;" width="1088" height="231">
+			<tr>
+				<th width="100px">学号</th>
+				<th width="200px">姓名</th>
+				<th width="200px">性别</th>
+				<th width="100px">班级</th>
+				<th width="200px">联系方式</th>
+				<th width="100px">家庭住址</th>
+			</tr>	
+				<tr th:each="l: ${list}" onmousemove="changeColor(this)" onmouseout="changeColor1(this)">
+					<td th:text="${l.Sno}"></td>
+					<td th:text="${l.Sname}"></td>
+					<td th:text="${l.Ssex}"></td>
+					<td th:text="${l.Sclass}"></td>
+					<td th:text="${l.Sphone}"></td>
+					<td th:text="${l.Saddress}"></td>
+					<td><a th:href="@{/findOne(id=${l.id})}">修改</a></td>
+				</tr>
+			<tr>
+				<td colspan="5" align="right">
+					&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;共<span th:text="${totalCount}">${totalCount}</span>条记录&nbsp;&nbsp;共<span th:text="${totalPage}"></span>页&nbsp;&nbsp;
+					第<span th:text="${pageCur}"></span>页&nbsp;&nbsp;
+					<span th:if="${pageCur != 1}">
+						<a th:href="@{/selectInfo(page=${pageCur}-1,act=updateSelect)}">上一页</a>&nbsp;&nbsp;&nbsp;&nbsp;
+					</span>
+					<span th:if="${pageCur != totalPage&&totalPage!=0}">
+						<a th:href="@{/selectInfo(page=${pageCur}+1,act=updateSelect)}">下一页</a>
+					</span>
+				</td>
+			</tr>
+		</table>
+	</span>
+</body>
+</html>
+<script type="text/javascript">
+		function changeColor(obj){
+			obj.className = "bgcolor";
+		}
+		function changeColor1(obj){
+			obj.className = "";
+		}	
+	</script>

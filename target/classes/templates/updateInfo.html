@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>修改学生信息</title>
+</head>
+<body>
+<form action="updateInfo" method="post">
+		<input type="hidden" name="id" th:value="${person.id}"/>
+		<table style="border-collapse: collapse" align="center" cellpadding=8>
+			<caption style="font-weight:700;" >
+				<font size=4 >添加学生信息</font>
+			</caption>
+			<tr>
+				<td>学号</td>
+				<td>
+					<input name="Sno" th:value="${person.Sno}"/>
+				</td>
+			</tr>
+			<tr>
+				<td>姓名</td>
+				<td>
+					<input name="Sname" th:value="${person.Sname}"/>
+				</td>
+			</tr>
+			<tr>
+				<td>性别</td>
+				<td>
+					<input name="Ssex" th:value="${person.Ssex}"/>
+				</td>
+			</tr>
+			<tr>
+				<td>班级</td>
+				<td>
+					<input name="Sclass" th:value="${person.Sclass}"/>
+				</td>
+			</tr>
+			<tr>
+				<td>联系方式</td>
+				<td>
+					<input name="Sphone" th:value="${person.Sphone}"/>
+				</td>
+			</tr>
+			<tr>
+				<td>地址</td>
+				<td>
+					<input name="Saddress" th:value="${person.Saddress}"/>
+				</td>
+			</tr>
+			<tr>
+				<td >
+					<input type="submit" value="提交" class="login"/>
+				</td>
+				<td >
+					<input type="reset" value="重置" class="login"/>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

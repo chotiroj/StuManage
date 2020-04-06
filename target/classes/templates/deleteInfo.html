@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>删除学生信息</title>
+</head>
+<body>
+<span th:if="${list.size() == 0 }">
+		您还没有录入信息。
+	</span>
+	<span th:if="${list.size() != 0 }">
+		<table cellpadding="10"  style="text-align: center;" width="1088" height="231">
+			<tr>
+				<th width="100px">学号</th>
+				<th width="200px">姓名</th>
+				<th width="200px">性别</th>
+				<th width="100px">班级</th>
+				<th width="200px">联系方式</th>
+				<th width="100px">家庭住址</th>
+			</tr>	
+				<tr th:each="l: ${list}" onmousemove="changeColor(this)" onmouseout="changeColor1(this)">
+					<td th:text="${l.Sno}"></td>
+					<td th:text="${l.Sname}"></td>
+					<td th:text="${l.Ssex}"></td>
+					<td th:text="${l.Sclass}"></td>
+					<td th:text="${l.Sphone}"></td>
+					<td th:text="${l.Saddress}"></td>
+					<td><a th:href="@{/deleteInfo(id=${l.id})}" onclick="return checkDel();">删除</a></td>
+				</tr>
+			<tr>
+				<td colspan="5" align="right">
+					&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;共<span th:text="${totalCount}">${totalCount}</span>条记录&nbsp;&nbsp;共<span th:text="${totalPage}"></span>页&nbsp;&nbsp;
+					第<span th:text="${pageCur}"></span>页&nbsp;&nbsp;
+					<span th:if="${pageCur != 1}">
+						<a th:href="@{/selectInfo(page=${pageCur}-1,act=deleteSelect)}">上一页</a>&nbsp;&nbsp;&nbsp;&nbsp;
+					</span>
+					<span th:if="${pageCur != totalPage&&totalPage!=0}">
+						<a th:href="@{/selectInfo(page=${pageCur}+1,act=deleteSelect)}">下一页</a>
+					</span>
+				</td>
+			</tr>
+		</table>
+	</span>
+</body>
+</html>
+<script type="text/javascript">
+		function changeColor(obj){
+			obj.className = "bgcolor";
+		}
+		function changeColor1(obj){
+			obj.className = "";
+		}
+	</script>
+	<script type="text/javascript">
+  		function confirmDelete(){
+  			var n = document.deleteForm.ids.length;
+  			var count = 0;//统计没有选中的个数
+  			for(var i = 0; i < n; i++){
+  				if(!document.deleteForm.ids[i].checked){
+  					count++;
+  				}else{
+  					break;
+  				}
+  			}
+  			if(n > 1){
+  				if(count == n){
+  					alert("请选择您需要删除的商品！");
+  	  				count = 0;
+  	  				return false;
+  				}
+  			}else{
+  	  			if(!document.deleteForm.ids.checked){
+  	  					alert("请选择您需要删除的商品！");
+  	  					return false;
+  	  			}
+  			}	
+  		
+  			if(window.confirm("是否确认删除？")){
+  				document.deleteForm.submit();
+  				return true;
+  			}
+  			return false;
+  		}
+  		function checkDel(){
+  			if(window.confirm("是否删除该学生信息？")){
+  				return true;
+  			}
+  			else{
+  				return false;
+  			}
+  		}
+  </script>

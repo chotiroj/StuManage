@@ -1,0 +1,24 @@
+html,body{padding:0;}
+#top{width:100%;height:75px; background-color:#438eb9;}
+#logo{ float:left;padding:0 10px;}
+#times{color:white;line-height:75px;}
+.content{ width:100%; height:532px;}
+.nav-content{ width: 208px;height: 532px; float:left;}
+.main-content{max-width:1000px;width:100%; height:532px; float:left;position:relative; left:30px;top:-3px;}
+.nav-title{ text-align:center;width:208px; height:43px;background-color: #62a8d1; font-size:13px;
+    line-height: 39px; color:#fff;}
+.nav-titleName{ width:168px;height: 36px;font-size:14px;line-height: 36px;background: #f7f7f7;border-bottom: 1px solid #fff;
+	padding: 0 20px; display:block;}
+.breadcrumbs {border-bottom: 1px solid #e5e5e5;background-color: #f5f5f5;min-height: 31px;line-height: 40px;
+    padding: 0 1px 0 10px;display: block;font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
+    font-size: 13px;color: #393939; margin-left:20px;  width:1105px;}
+#header {height: 90px;width: 800px;margin: 0px 0px 3px 0px;}
+#content {height: auto;width: 780px;padding: 10px; margin-left:10px;}
+#content iframe {height: 300px;width: 780px;}
+.navigator ul li{list-style:none;float:left;padding:7px 6px 7px 6px;text-decoration:none;width:70px;height:20px;
+background-color: #62a8d1;text-align:center;}
+.navigator ul li:hover{    background-color: #438eb9;}
+.navigator ul li a{text-decoration:none; color:#fff;}
+.navigator{ margin-left:20px; width:1300px;}
+.input1{width:280px;height:30px;float:left;padding-left:10px;}
+.input2{width:80px;height:34px;float:left;border:none;background:#62a8d1;color:#fff;font-size:16px;}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>index</title>
+<link rel="stylesheet" type="text/css" href="../css/main.css"/>
+<link rel="stylesheet" href="../css/zzsc.css" />
+<script type="text/javascript" src="../js/jquery1.42.min.js" ></script>
+<script type="text/javascript" src="../js/jquery.SuperSlide.2.1.1.js" ></script>
+</head>
+<body>
+<div id="top">
+	<div id="logo"><img src="../images/logo.png"/></div>
+		<em id="times"></em>
+	</div>
+	<div class="nav-title">网站后台管理系统</div>
+<div class="content">
+<!-- 	左侧导航 -->
+	<div class="sideMenu">
+			<a class="nav-titleName">系统首页</a>
+			<h3>学生学籍</h3>
+			<ul>
+				<li><a href="#">基本信息</a></li>
+				<li><a href="#">成绩管理</a></li>
+				<li><a href="#">档案管理</a></li>
+				<li><a href="#">注册信息</a></li>
+				<li><a href="#">毕业事宜</a></li>
+			</ul>
+			<h3><a href="#">教学安排</a></h3>
+			<ul>
+				<li><a href="#">教学安排表</a></li>
+				<li><a href="#">调/停课信息</a></li>
+			</ul>
+			<h3>培养方案</h3>
+			<ul>
+				<li><a href="#">理论课程</a></li>
+				<li><a href="#">实践环节</a></li>
+				<li><a href="#">毕业学分安排</a></li>
+			</ul>
+			<h3>考试安排</h3>
+			<ul>
+				<li><a href="#">考试管理规定</a></li>
+				<li><a href="#">补考</a></li>
+				<li><a href="#">缓考</a></li>
+				<li><a href="#">考试安排表</a></li>
+				<li><a href="#">考试信息通报</a></li>
+			</ul>
+			<h3>消息管理</h3>
+			<ul>
+				<li><a href="#">留言列表</a></li>
+				<li><a href="#">意见反馈</a></li>
+			</ul>
+		</div>
+	<div class="main-content">
+		<div class="breadcrumbs">&nbsp;&nbsp;&nbsp;&nbsp;首页&nbsp;&nbsp;>&nbsp;&nbsp;学生学籍&nbsp;&nbsp;>&nbsp;&nbsp;基本信息</div>
+		<form action="search" method="post" style="width:400px;height:30px;position:absolute;top:-38px;margin-left:20px;">
+	<input type="text" name="Sname" class="input1" placeholder="请输入搜索信息"/><input type="submit" class="input2" value="搜索"/> 
+	</form>
+		<div class="navigator">
+				<ul>
+					<li><a href="selectInfo" target="center">查询</a></li>
+					<li><a href="toaddUserInfo" target="center">添加</a></li>
+					<li><a href="selectInfo?act=updateSelect" target="center">更新</a></li>
+					<li><a href="selectInfo?act=deleteSelect" target="center">删除</a></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+	</div>
+	<div id="content">
+		<iframe src="selectInfo"  name="center" frameborder="0" width="100%"></iframe>
+	</div>
+	</div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+jQuery(".sideMenu").slide({
+	titCell:"h3", //鼠标触发对象
+	targetCell:"ul", //与titCell一一对应，第n个titCell控制第n个targetCell的显示隐藏
+	effect:"slideDown", //targetCell下拉效果
+	delayTime:300 , //效果时间
+	triggerTime:150, //鼠标延迟触发时间（默认150）
+	defaultPlay:true,//默认是否执行效果（默认true）
+	trigger:"click",
+	returnDefault:true //鼠标从.sideMen移走后返回默认状态（默认false）
+	});
+
+var times=document.getElementById("times")
+function sz(){
+	t=setInterval(function(){
+	var dd=new Date;
+	var y=dd.getFullYear();
+	var m=dd.getMonth()+1;
+	var d=dd.getDate();
+	var h=dd.getHours();
+	var i=dd.getMinutes();
+	var s=dd.getSeconds();
+	var wkday = dd.getDay();
+	times.innerHTML=y+"年"+m+"月"+d+"日"+"   "+h+":"+i+":"+s+" "+"星期"+"日一二三四五六".charAt(wkday);
+},1000)
+}
+sz() 
+</script>

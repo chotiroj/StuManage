@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>查询用户信息</title>
+<link rel="stylesheet" type="text/css" href="../css/main.css"/>
+</head>
+<body style="margin:0;">
+<div id="top">
+	<div id="logo"><img src="../images/logo.png"/></div>
+		<em id="times" ></em>
+	</div>
+	<div style="clear:left;"></div>
+<span th:if="${lists.size() == 0 }">
+		没有相关信息。
+	</span>
+	<span th:if="${lists.size() != 0 }">
+		<table cellpadding="10" style="text-align:center;margin-left:20px;">
+			<tr>
+				<th width="100px">学号</th>
+				<th width="200px">姓名</th>
+				<th width="200px">性别</th>
+				<th width="100px">班级</th>
+				<th width="200px">联系方式</th>
+				<th width="100px">家庭住址</th>
+			</tr>
+				<tr th:each="l: ${lists}" onmousemove="changeColor(this)" onmouseout="changeColor1(this)">
+					<td th:text="${l.Sno}"></td>
+					<td th:text="${l.Sname}"></td>
+					<td th:text="${l.Ssex}"></td>
+					<td th:text="${l.Sclass}"></td>
+					<td th:text="${l.Sphone}"></td>
+					<td th:text="${l.Saddress}"></td>
+				</tr>
+		</table>
+	</span>
+</body>
+</html>
+<script type="text/javascript">
+var times=document.getElementById("times")
+function sz(){
+	t=setInterval(function(){
+	var dd=new Date;
+	var y=dd.getFullYear();
+	var m=dd.getMonth()+1;
+	var d=dd.getDate();
+	var h=dd.getHours();
+	var i=dd.getMinutes();
+	var s=dd.getSeconds();
+	var wkday = dd.getDay();
+	times.innerHTML=y+"年"+m+"月"+d+"日"+"   "+h+":"+i+":"+s+" "+"星期"+"日一二三四五六".charAt(wkday);
+},1000)
+}
+sz() 
+</script>
